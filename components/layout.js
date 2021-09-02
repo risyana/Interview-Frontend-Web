@@ -1,6 +1,7 @@
 import { Layout, Menu } from 'antd';
 import Link from 'next/link'
 import Image from 'next/image'
+import { IconQ1, IconQ2 } from '../components/icons'
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -27,36 +28,16 @@ export default function MyLayout({children}) {
             height={30} 
             />
         </div>
-        <Menu theme="light" mode="inline" defaultSelectedKeys={['0']}>
-          <Menu.Item key="1" >
-            <div style={{display:'flex', alignItems: 'center'}}>
-              <Image 
-                src="/icon/Q1.svg" 
-                alt="q1" 
-                width={30} 
-                height={30} 
-                />
-              <Link passHref={true} href="/question-1" >
-                <span style={{marginBottom:7 , marginLeft: 4}}>
-                  Question 1
-                </span>
-              </Link>
-            </div>
+        <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu.Item key="1" icon={<IconQ1/>} >
+            <Link href="/question-1" >
+              Question 1
+            </Link>
           </Menu.Item>
-          <Menu.Item key="2" >
-            <div style={{display:'flex', alignItems: 'center'}}>
-              <Image 
-                src="/icon/Q2.svg" 
-                alt="q2" 
-                width={30} 
-                height={30} 
-                />
-              <Link passHref={true} href="/question-2" >
-                <span style={{marginBottom:7 , marginLeft: 4}}>
-                  Question 2
-                </span>
-              </Link>
-            </div>
+          <Menu.Item key="2" icon={<IconQ2/>}>
+            <Link href="/question-2" >
+              Question 2
+            </Link>
           </Menu.Item>
         </Menu>
       </Sider>

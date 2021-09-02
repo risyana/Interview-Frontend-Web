@@ -1,12 +1,12 @@
 import { Table, Tag } from 'antd';
 
 const columns = [
-  {title: 'id', dataIndex: 'id', key: 'id' },
-  {title: 'category', dataIndex: 'category', key: 'category' },
-  {title: 'title', dataIndex: 'title', key: 'title' },
-  {title: 'description', dataIndex: 'description', key: 'description' },
-  {title: 'footer', dataIndex: 'footer', key: 'footer' },
-  {title: 'tags', dataIndex: 'tags', key: 'tags',
+  {title: 'ID', dataIndex: 'id', key: 'id' },
+  {title: 'Category', dataIndex: 'category', key: 'category' },
+  {title: 'Title', dataIndex: 'title', key: 'title' },
+  {title: 'Description', dataIndex: 'description', key: 'description' },
+  {title: 'Footer', dataIndex: 'footer', key: 'footer' },
+  {title: 'Tags', dataIndex: 'tags', key: 'tags',
     render:(text, record) => (
       <ul>
         {(record.tags && record.tags.length > 0) && record.tags.map(tag => (
