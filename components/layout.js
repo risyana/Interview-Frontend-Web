@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { IconQ1, IconQ2 } from '../components/icons'
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 
 export default function MyLayout({children}) {
   return (
