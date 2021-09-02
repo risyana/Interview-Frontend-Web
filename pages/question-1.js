@@ -24,10 +24,10 @@ const columns = [
 export default function q1({data}) {
   return (
     <>
-      <p>    
+      <h2 style={{textAlign: 'left'}}>    
         Question 1
-      </p>
-      <Table columns={columns} dataSource={data} scroll={{ y: 600 }} />
+      </h2>
+      <Table pagination={{defaultPageSize: 5, position:['bottom', 'left']}} columns={columns} dataSource={data} />
     </>
   )
 }

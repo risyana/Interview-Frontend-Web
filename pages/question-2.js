@@ -51,11 +51,19 @@ export default function Q2(props) {
 
   return (
     <>
-      <p>    
-        Question 2
-      </p>
-      <Search placeholder="Search" value={keyword} onChange={(e) => setKeyword(e.target.value)} style={{ width: 200 }} />
-      <Table columns={columns} dataSource={filteredData} scroll={{ y: 600 }} />
+      <div style={{display:'flex', justifyContent:'space-between'}}>
+        <h2 style={{textAlign: 'left'}}>    
+          Question 2
+        </h2>
+        <Search 
+          size="large"
+          placeholder="Search" 
+          value={keyword} 
+          onChange={(e) => setKeyword(e.target.value)} 
+          style={{ width: 400 }} 
+        />
+      </div>
+      <Table columns={columns} pagination={{defaultPageSize: 5, position:['bottom', 'left']}} dataSource={filteredData} />
     </>
   )
 }
