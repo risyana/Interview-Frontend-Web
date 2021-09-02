@@ -10,13 +10,15 @@ const columns = [
   {title: 'footer', dataIndex: 'footer', key: 'footer' },
   {title: 'tags', dataIndex: 'tags', key: 'tags',
     render:(text, record) => (
-      <>
+      <ul>
         {(record.tags && record.tags.length > 0) && record.tags.map(tag => (
-          <Tag color="blue" key={tag}>
-            {tag}
-          </Tag>
+          <li key={tag}>
+            <Tag color="blue" >
+              {tag}
+            </Tag>
+          </li>
         ))}
-      </>
+      </ul>
     )
   }
 ];
