@@ -1,4 +1,6 @@
-import { Table, Tag } from 'antd';
+import { Table, Tag, Input } from 'antd';
+import { useState, useEffect } from 'react'
+const {Search} = Input
 
 const columns = [
   {title: 'id', dataIndex: 'id', key: 'id' },
@@ -19,13 +21,39 @@ const columns = [
   }
 ];
 
-export default function q2({data}) {
+export default function Q2(props) {
+  const { data } = props
+  const [keyword, setKeyword] = useState('')
+  const [filteredData, setFilteredData] = useState(data)
+
+  const filterTable = (originalData, keyword) => {
+    const filtered =  keyword 
+      ? originalData.filter(d => {
+          return (
+            d.id && d.id.toString().toUpperCase().includes(keyword.toUpperCase()) ||
+            d.category && d.category.toString().toUpperCase().includes(keyword.toUpperCase()) ||
+            d.title && d.title.toUpperCase().includes(keyword.toUpperCase()) ||
+            d.description && d.description.toUpperCase().includes(keyword.toUpperCase()) ||
+            d.footer && d.footer.toUpperCase().includes(keyword.toUpperCase()) ||
+            d.tags && d.tags.join(' ').toUpperCase().includes(keyword.toUpperCase())
+          )
+        })
+      : originalData
+
+    setFilteredData(filtered)
+  }
+
+  useEffect(() => {
+    filterTable(data, keyword)
+  }, [keyword, data])
+
   return (
     <>
       <p>    
         Question 2
       </p>
-      <Table columns={columns} dataSource={data} scroll={{ y: 600 }} />
+      <Search placeholder="Search" value={keyword} onChange={(e) => setKeyword(e.target.value)} style={{ width: 200 }} />
+      <Table columns={columns} dataSource={filteredData} scroll={{ y: 600 }} />
     </>
   )
 }
